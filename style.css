@@ -1,0 +1,51 @@
+/* CSS Document */
+/* Universal Selector Reset cssreset.com */
+* { margin: 0; padding: 0; }
+/* End Reset */
+body {
+   background-color: #e6ccff;
+   text-align: left;
+   font: 11px/1.1em "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+h1 {
+   font-size: 1.5em;
+   color: #639;
+   margin-bottom: 1.5em;
+}
+h2 {
+   font-size: 1.3em;
+   line-height: .5em;
+}
+h3 {
+   font-size: 1.1em;
+}
+#header {
+   width: 900px;
+   top: 10px;
+   right: 20px;
+}
+#content {
+   width: 900px;
+   top: 100px;
+   right: 20px;
+   margin-top: 30px;
+}
+#navbar {
+   background-color: #000;
+   padding-top: 3px;
+   width: 900px;
+   height: 40px;
+   top: 40px;
+   right: 20px;
+}
+li.nav {
+   font-family: "Courier New", Courier, monospace;
+   font-size:13px;
+   white-space: nowrap;
+   display: inline;
+   list-style-type: none;
+   padding-right: 1.5em;
+}
+li.nav a {
+   color: #FFFFFF;
+}
