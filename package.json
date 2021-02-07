@@ -1,0 +1,31 @@
+{
+  "name": "overpoweredslimes",
+  "version": "1.0.0",
+  "description": "Slime Fan Site",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server/index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElijahStrauss/OverpoweredSlimes.git"
+  },
+  "keywords": [
+    "fan",
+    "site",
+    "slime",
+    "overpowered"
+  ],
+  "author": "Elijah Strauss",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ElijahStrauss/OverpoweredSlimes/issues"
+  },
+  "homepage": "https://github.com/ElijahStrauss/OverpoweredSlimes#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
