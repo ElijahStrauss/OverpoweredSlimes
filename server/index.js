@@ -27,7 +27,7 @@ app.get ('/', function (req, res){
 });
 
 app.get ('/slime', counter, function (req, res){
-    res.render('slime');
+    res.render('slime',{count:x});
 });
 
 
