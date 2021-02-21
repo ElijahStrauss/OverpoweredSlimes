@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(session({
     name: 'slimes',
     secret: 'eachdogneeds15cats',
-    saveUninitialized: true,
+    saveUninitialized: false,
     resave: true,
     cookie: {
         maxAge: 1000*60*60*24*3,
@@ -39,16 +39,17 @@ app.use(session({
 
 
 app.get ('/', function (req, res){
-    res.render('index', {nomen: req.session.username});
+    res.render('index', {data: req.session});
 });
 
 app.get ('/slime', function (req, res){
-    res.render('slime', {nomen: req.session.username});
+    res.render('slime', {data: req.session});
 });
 
 app.post ('/welcome' , (req, res)=>{
-req.session.username=req.body.visitorname;
-res.redirect('/');
+console.log(req.body)
+req.session.username=req.body.nombre;
+res.send('SUCCESS');
 })
 
 app.listen(2000);

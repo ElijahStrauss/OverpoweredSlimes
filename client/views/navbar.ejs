@@ -1,12 +1,42 @@
 <div id="navbar">
-<form method="post" action="welcome">
-    <a href="/">Home</a>
-    <a href="/slime">Slime</a> &diam;
-    <% if(nomen) { %>
-    Hello <%=nomen%>!
-    <% } else { %>
-    <input type="test" name= "visitorname" />
-    <button type="submit"> Tell me your name </button>
-    <% }  %>
-</form>
+<a href="/">Home</a>
+<a href="/slime">Slime</a> &diam;
+<span id="navwelcome"> </span>
 </div>
+
+<script>
+    var name = "<%=data.username %>";
+    var greetNewcomer = "<input type='test'/><button type='submit'> Tell me your name </button>"
+
+    $(function() {
+
+    var name = "<%=data.username %>";
+    var greetNewcomer = "<input type='text'/><button>Tell me your name</button>";
+
+    const sayYourName = function() {
+        var visitorName = $('#navwelcome > input').val();
+            $.ajax({
+                url: 'welcome',
+                type: 'POST',
+                data: {
+                    'nombre': visitorName
+                },
+                success: (data) => {
+                    if(data=='SUCCESS') $('#navwelcome').html(`Welcome, ${visitorName}`);
+                }
+            });
+    }
+
+    if(name=="") {
+        $('#navwelcome').html(greetNewcomer);
+        $('#navwelcome > button').on('click', sayYourName);
+        $('#navwelcome > input').on('keyup', (key) => {
+            if(key.keyCode==13) sayYourName();
+        });
+    } else {
+        $('#navwelcome').html(`Welcome, ${name}`);
+    }    
+
+    });
+
+</script>
