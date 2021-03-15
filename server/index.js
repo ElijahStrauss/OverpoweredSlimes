@@ -85,6 +85,7 @@ app.post('/blog/writepost', async (req, res)=>{
         res.redirect('/blog/');
     }
     catch(e) {
+        console.log(e);
         res.redirect('/blog/write/');
     }
 });
