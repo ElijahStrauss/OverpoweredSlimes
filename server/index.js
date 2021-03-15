@@ -132,4 +132,10 @@ app.get('/blog/:id/delete', (req, res)=>{
         res.redirect('/blog/')
     })
 })
+
+app.use((req, res, next)=>{
+    console.log(req.originalUrl);
+    next();
+})
+
 app.listen(2000);
