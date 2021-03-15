@@ -1,0 +1,19 @@
+<html>
+    <h1>
+        <title>Blog</title>
+        <%- include('header.ejs') %>
+    </h1>
+    <body>
+        <%- include ('navbar.ejs')%>
+        <div id="content"><!-- Place a few sentences of something goofy here.-->
+
+            <table>
+                <% postset.forEach(function(bpost) { %>
+                    <%- include('blogpostpreview',{post: bpost}) %>
+                    <% }) %>
+            </table>
+            <br/><br/>
+            <a href="write/">Write a post</a>
+        </div> <!-- end content -->
+    </body>
+</html>
