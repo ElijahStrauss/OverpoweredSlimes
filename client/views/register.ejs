@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title>Tell us who you are</title>
+    <%- include('header.ejs') %>
+</head>
+
+<body>
+    <%- include('navbar.ejs') %>
+        <div id="content">
+            <h1 align="center">Tell us who you are</h1>
+            <br /><br />
+
+            <form method="post" action="/register">
+                <table align="center">
+                    <tr>
+                        <td>Name: </td>
+                        <td><input type="text" name="username" id="username" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password: </td>
+                        <td><input type="password" name="password" id="password" /></td>
+                    </tr>
+                    <tr>
+                        <td>Confirm password: </td>
+                        <td><input type="password" id="confirmpassword" /></td>
+                    </tr>
+                    <tr>
+                        <td>Favourite Slime: </td>
+                        <td>
+                            <select name="favourite">
+                                <option value="red">Red slime</option>
+                                <option value="blue">Rimuru</option>
+                                <option value="green">Green slime</option>
+                                <option value="purple">Purple slime</option>
+                                <option value="black">Black slime</option>
+                                <option value="white">White slime</option>
+                                <option value="orange">Orange slime</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit" id="register" disabled>Register</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <script>
+            $(() => {
+                $('input').on('keyup', () => {
+                    if ($('#password').val() == $('#confirmpassword').val()
+                        && $('#username').val() != ""
+                        && $('#password').val() != "") {
+                        console.log($('#username').val());
+                        $('#register').prop('disabled', false);
+                    }
+                    else {
+                        $('#register').prop('disabled', true);
+                    }
+                })
+            });
+        </script>
+</body>
+
+</htmL>

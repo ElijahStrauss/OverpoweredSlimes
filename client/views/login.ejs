@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <title>Overpowered Slimes</title>
+     <%- include('header.ejs') %>
+   </head>
+   <body>
+     <div id="header"> <!-- Contains the page headline -->
+      <h1>Welcome to the Overpowered Slimes site!</h1>
+    </div>
+<!-- end header -->
+      <%- include ('navbar.ejs')%>
+    <div id="content"><!-- Place a few sentences of something goofy here.-->
+        <form action="login" method="POST">
+            <table align="center" cellpadding="6">
+                <tr>
+                    <th colspan="2">LOGIN</th>
+                </tr>
+                <tr>
+                    <th>Username</th>
+                    <td>
+                        <input type="text" placeholder="Enter Username" name="username" required>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <th>Password</th>
+                    <td><input type="password" placeholder="Enter Password" name="password" required></td>
+                </tr>
+                <tr>
+                    <th colspan="2"><button type="submit">Login</button></th>
+                </tr>
+            </table>
+            </form>
+            <a href="/register">Register Here</a>
+    </div> <!-- end content -->
+    </body>
+</html>

@@ -1,16 +1,43 @@
 <html>
-    <h1>
-        <title>%=entry.title%</title>
-        <%- include('header.ejs') %>
-    </h1>
-    <body>
-        <%- include ('navbar.ejs')%>
-        <div id="content"><!-- Place a few sentences of something goofy here.-->
-            <h2>%=entry.title%</h2>
-            <h3>%=entry.body%</h3>
-            
-        <br/><br/>
-        (<a href="edit">Edit</a>|<a href="delete">Delete</a>)
-        </div> <!-- end content -->
-    </body>
+<head>
+    <title><%=entry.title %></title>
+    <%- include('header.ejs') %>
+</head>
+
+<body>
+<div id="mainpanel">
+<h1><%=entry.title%></h1>
+<i>by <%=entry.author%></i><br/><br/>
+<%- entry.parsedText %>
+
+<br/><br/>
+(<a href="edit">Edit</a> | <a href="delete">Delete</a>)
+<br/><br/>
+<i style="font-size: 0.8em">comments</i><br/><br/>
+
+<% entry.comments.forEach(function(comment) { %>
+<div><%= comment.text %></div>
+<i><%= comment.author %></i>
+    <% if(data.isSlimeLover) { %>
+    <form action="deletecomment/<%=comment._id%>" method="post"><button type="submit">Delete</button></form>
+    <%}%>
+    <br/><br/>
+<% }); %>
+
+
+<br/><br/>
+<a href="#" onclick="$('#commentform').show()"><i style="font-size: 0.8em">leave a comment</i></a><br/><br/>
+
+<form action="comment" method="POST" id="commentform" style="display:none;">
+    <textarea style="width: 80%" name="comment"></textarea><br/>
+    <button type="submit">Write comment</button>
+</form>
+</div>
+
+
+<%- include('navbar.ejs') %>
+
+
+</body>
+
 </html>
